@@ -4,27 +4,21 @@ import LoggerAPI
 import Dispatch
 
 public class App {
-
+    let version: String
     let router = Router()
     let workerQueue = DispatchQueue(label: "worker")
 
-    public init() throws {
+    public init(version: String) throws {
+        self.version = version
         Log.info("Hello World")
     }
 
     func postInit() throws {
-        initializeContentUploadRoutes(app: self)
-
-
+        initializeProblemInsertRoutes(app: self)
         KituraOpenAPI.addEndpoints(to: router)
 
         router.get("/") { request, response, next in
-            response.send("Hello from the 1st route!")
-            next()
-        }
-
-        router.get("/") { request, response, next in
-            response.send("Hello from the 2nd route!")
+            response.send("index of ac-content-upload-server. version = " + self.version)
             next()
         }
     }
