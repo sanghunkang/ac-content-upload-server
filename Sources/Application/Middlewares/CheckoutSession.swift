@@ -4,11 +4,13 @@ final class CheckoutSession: TypeSafeSession {
     let sessionId: String                       // Requirement: every session must have an ID
     var setNames: [SetName]
     var problems: [Problem]
+    var userId: [String]
 
     init(sessionId: String) {                   // Requirement: must be able to create a new (empty)
         self.sessionId = sessionId              // session containing just an ID. Assign a default or
         setNames = []
-        problems = []                            // empty value for any non-optional properties.
+        problems = []  
+        userId = []                          // empty value for any non-optional properties.
     }
 }
 

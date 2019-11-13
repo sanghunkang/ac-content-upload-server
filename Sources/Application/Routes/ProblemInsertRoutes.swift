@@ -8,7 +8,6 @@ import LoggerAPI
 func initializeProblemInsertRoutes(app: App) {
     app.router.post("/insertProblem", handler: app.insertProblemHandler)
     app.router.post("/insertProblems", handler: app.insertProblemsHandler)
-    // app.router.post("/updateProblem", handler: app.updateProblemHandler)
 }
 
 extension App {

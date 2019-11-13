@@ -15,6 +15,7 @@ public class App {
 
     func postInit() throws {
         initializeProblemInsertRoutes(app: self)
+        initializeProblemUpdateRoutes(app: self)
         KituraOpenAPI.addEndpoints(to: router)
 
         router.get("/") { request, response, next in
